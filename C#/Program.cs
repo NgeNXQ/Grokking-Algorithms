@@ -1,10 +1,12 @@
-﻿namespace Grokking_Algorithms
+﻿using GrokkingAlgorithms.CSharp;
+
+namespace GrokkingAlgorithms
 {
-    internal class Program
+    internal sealed class Program
     {
-        static void Main(string[] args)
+        private static void Main() 
         {
-            
+
         }
     }
 }
