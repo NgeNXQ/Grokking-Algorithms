@@ -6,6 +6,7 @@ namespace GrokkingAlgorithms
     {
         namespace UnitTests
         {
+            [TestFixture]
             public sealed class BinarySearchTests
             {
                 #region Default Binary Search
