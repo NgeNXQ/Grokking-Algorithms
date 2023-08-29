@@ -12,26 +12,34 @@ namespace GrokkingAlgorithms
                 #region Default Binary Search
 
                 [Test]
-                public void BinarySearch_FoundElement_ReturnsIndex()
+                [TestCase(1, 0)]
+                [TestCase(2, 1)]
+                [TestCase(3, 2)]
+                [TestCase(4, 3)]
+                [TestCase(5, 4)]
+                [TestCase(6, 5)]
+                [TestCase(7, 6)]
+                [TestCase(8, 7)]
+                [TestCase(9, 8)]
+                [TestCase(10, 9)]
+                public void BinarySearch_FoundElement_ReturnsIndex(int input, int expected)
                 {
-                    int[] array = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                    int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-                    for (int i = 0; i < array.Length; ++i)
-                    {
-                        if (SearchingAlgorithms.BinarySearch(array, i) != i)
-                            Assert.Fail();
-                    }
+                    int actual = SearchingAlgorithms.BinarySearch(array, input);
+
+                    Assert.That(actual, Is.EqualTo(expected));
                 }
 
                 [Test]
                 public void BinarySearch_ElementNotFound_ReturnsMinusOne()
                 {
-                    int[] array = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-                    int target = 10;
+                    int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                    const int NUMBER_NOT_IN_ARRAY = 0;
 
-                    int result = SearchingAlgorithms.BinarySearch(array, target);
+                    int actual = SearchingAlgorithms.BinarySearch(array, NUMBER_NOT_IN_ARRAY);
 
-                    Assert.That(result == -1);
+                    Assert.That(actual == -1);
                 }
 
                 [Test]
@@ -40,9 +48,9 @@ namespace GrokkingAlgorithms
                     int[] array = new int[0];
                     int target = 10;
 
-                    int result = SearchingAlgorithms.BinarySearch(array, target);
+                    int actual = SearchingAlgorithms.BinarySearch(array, target);
 
-                    Assert.That(result == -1);
+                    Assert.That(actual == -1);
                 }
 
                 #endregion
@@ -50,24 +58,32 @@ namespace GrokkingAlgorithms
                 #region Recursive Binary Search
 
                 [Test]
-                public void BinarySearchRecursive_FoundElement_ReturnsIndex()
+                [TestCase(1, 0)]
+                [TestCase(2, 1)]
+                [TestCase(3, 2)]
+                [TestCase(4, 3)]
+                [TestCase(5, 4)]
+                [TestCase(6, 5)]
+                [TestCase(7, 6)]
+                [TestCase(8, 7)]
+                [TestCase(9, 8)]
+                [TestCase(10, 9)]
+                public void BinarySearchRecursive_FoundElement_ReturnsIndex(int input, int expected)
                 {
-                    int[] array = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                    int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-                    for (int i = 0; i < array.Length; ++i)
-                    {
-                        if (SearchingAlgorithms.BinarySearchRecursive(array, i) != i)
-                            Assert.Fail();
-                    }
+                    int actual = SearchingAlgorithms.BinarySearchRecursive(array, input);
+
+                    Assert.That(actual, Is.EqualTo(expected));
                 }
 
                 [Test]
                 public void BinarySearchRecursive_ElementNotFound_ReturnsMinusOne()
                 {
-                    int[] array = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-                    int target = 10;
+                    int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                    const int NUMBER_NOT_IN_ARRAY = 0;
 
-                    int result = SearchingAlgorithms.BinarySearchRecursive(array, target);
+                    int result = SearchingAlgorithms.BinarySearchRecursive(array, NUMBER_NOT_IN_ARRAY);
 
                     Assert.That(result == -1);
                 }
@@ -78,9 +94,9 @@ namespace GrokkingAlgorithms
                     int[] array = new int[0];
                     int target = 10;
 
-                    int result = SearchingAlgorithms.BinarySearchRecursive(array, target);
+                    int actual = SearchingAlgorithms.BinarySearchRecursive(array, target);
 
-                    Assert.That(result == -1);
+                    Assert.That(actual == -1);
                 }
 
                 #endregion
