@@ -22,7 +22,7 @@ namespace GrokkingAlgorithms
                 [TestCase(8, 7)]
                 [TestCase(9, 8)]
                 [TestCase(10, 9)]
-                public void BinarySearch_FoundElement_ReturnsIndex(int input, int expected)
+                public void BinarySearch_ElementInArray_ReturnsIndex(int input, int expected)
                 {
                     int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
@@ -32,7 +32,7 @@ namespace GrokkingAlgorithms
                 }
 
                 [Test]
-                public void BinarySearch_ElementNotFound_ReturnsMinusOne()
+                public void BinarySearch_ElementNotInArray_ReturnsMinusOne()
                 {
                     int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
                     const int NUMBER_NOT_IN_ARRAY = 0;
@@ -68,7 +68,7 @@ namespace GrokkingAlgorithms
                 [TestCase(8, 7)]
                 [TestCase(9, 8)]
                 [TestCase(10, 9)]
-                public void BinarySearchRecursive_FoundElement_ReturnsIndex(int input, int expected)
+                public void BinarySearchRecursive_ElementInArray_ReturnsIndex(int input, int expected)
                 {
                     int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
@@ -78,7 +78,7 @@ namespace GrokkingAlgorithms
                 }
 
                 [Test]
-                public void BinarySearchRecursive_ElementNotFound_ReturnsMinusOne()
+                public void BinarySearchRecursive_ElementNotInArray_ReturnsMinusOne()
                 {
                     int[] array = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
                     const int NUMBER_NOT_IN_ARRAY = 0;
