@@ -1,12 +1,10 @@
-﻿//[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("GrokkingAlgorithms_CSharp.UnitTests")]
-
-namespace GrokkingAlgorithms
+﻿namespace GrokkingAlgorithms
 {
     namespace CSharp
     {
         namespace Algorithms
         {
-            internal static partial class SearchingAlgorithms
+            internal static class SearchingAlgorithms
             {
                 internal static int BinarySearch<T>(T[] array, T item) where T : IComparable<T>
                 {

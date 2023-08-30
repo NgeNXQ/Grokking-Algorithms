@@ -2,61 +2,64 @@
 {
     namespace CSharp
     {
-        internal static class SortingAlgorithms
+        namespace Algorithms
         {
-            internal enum Order : byte
+            internal static class SortingAlgorithms
             {
-                Ascending,
-                Descending
-            }
-
-            private static void Swap<T>(T[] array, int index1, int index2)
-            {
-                T temp = array[index1];
-                array[index1] = array[index2];
-                array[index2] = temp;
-            }
-
-            public static void SelectionSort<T>(T[] array, Order order) where T : IComparable<T> 
-            {
-                int index;
-
-                switch (order)
+                internal enum Order : byte
                 {
-                    case Order.Ascending:
-                        {
-                            for (int i = 0; i < array.Length; ++i)
+                    Ascending,
+                    Descending
+                }
+
+                private static void Swap<T>(T[] array, int index1, int index2)
+                {
+                    T temp = array[index1];
+                    array[index1] = array[index2];
+                    array[index2] = temp;
+                }
+
+                public static void SelectionSort<T>(T[] array, Order order) where T : IComparable<T>
+                {
+                    int index;
+
+                    switch (order)
+                    {
+                        case Order.Ascending:
                             {
-                                index = i;
-
-                                for (int j = i + 1; j < array.Length; ++j)
+                                for (int i = 0; i < array.Length; ++i)
                                 {
-                                    if (array[i].CompareTo(array[j]) > 0)
-                                        index = j;
-                                }
+                                    index = i;
 
-                                if (i != index)
-                                    Swap(array, index, i);
+                                    for (int j = i + 1; j < array.Length; ++j)
+                                    {
+                                        if (array[i].CompareTo(array[j]) > 0)
+                                            index = j;
+                                    }
+
+                                    if (i != index)
+                                        Swap(array, index, i);
+                                }
                             }
-                        }
-                        break;
-                    case Order.Descending:
-                        {
-                            for (int i = 0; i < array.Length; ++i)
+                            break;
+                        case Order.Descending:
                             {
-                                index = i;
-
-                                for (int j = i + 1; j < array.Length; ++j)
+                                for (int i = 0; i < array.Length; ++i)
                                 {
-                                    if (array[i].CompareTo(array[j]) < 0)
-                                        index = j;
-                                }
+                                    index = i;
 
-                                if (i != index)
-                                    Swap(array, index, i);
+                                    for (int j = i + 1; j < array.Length; ++j)
+                                    {
+                                        if (array[i].CompareTo(array[j]) < 0)
+                                            index = j;
+                                    }
+
+                                    if (i != index)
+                                        Swap(array, index, i);
+                                }
                             }
-                        }
-                        break;
+                            break;
+                    }
                 }
             }
         }

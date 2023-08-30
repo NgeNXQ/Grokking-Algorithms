@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="C#\Algorithms\" />
+    <Folder Include="C#\DataStructures\" />
     <Folder Include="C++\" />
     <Folder Include="Python\" />
   </ItemGroup>
