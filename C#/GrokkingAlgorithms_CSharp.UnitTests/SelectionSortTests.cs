@@ -9,8 +9,10 @@ namespace GrokkingAlgorithms
             namespace UnitTests
             {
                 [TestFixture]
-                internal sealed class SortingAlgorithmsTests
+                internal sealed partial class SortingAlgorithmsTests
                 {
+                    #region Selection Sort
+
                     [Test]
                     public void SelectionSort_DefaultArray_ReturnsSortedArrayByAscending()
                     {
@@ -32,6 +34,8 @@ namespace GrokkingAlgorithms
 
                         Assert.That(expected, Is.EqualTo(array));
                     }
+
+                    #endregion
                 }
             }
         }
