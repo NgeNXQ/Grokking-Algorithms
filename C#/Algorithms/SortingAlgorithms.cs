@@ -6,6 +6,8 @@
         {
             internal static class SortingAlgorithms
             {
+                #region Supporting members
+
                 internal enum Order : byte
                 {
                     Ascending,
@@ -18,6 +20,10 @@
                     array[index1] = array[index2];
                     array[index2] = temp;
                 }
+
+                #endregion
+
+                #region Selection Sort
 
                 public static void SelectionSort<T>(T[] array, Order order) where T : IComparable<T>
                 {
@@ -61,6 +67,73 @@
                             break;
                     }
                 }
+
+                #endregion
+
+                #region Quick Sort
+
+                public static void QuickSortPivotLeftWithoutMedian<T>(T[] array, Order order) where T : IComparable<T>
+                {
+                    switch(order)
+                    {
+                        case Order.Ascending:
+                            PartitionAscending(0, array.Length, 0);
+                            break;
+                        case Order.Descending:
+                            PartitionDescending(0, array.Length, 0);
+                            break;
+                    }
+
+                    void PartitionAscending(int low, int high, int depth)
+                    {
+                        if (low < high)
+                        {
+                            int pivot = low;
+
+                            for (int i = low + 1; i < high; ++i)
+                            {
+                                if (array[i].CompareTo(array[low]) < 0)
+                                    Swap(array, ++pivot, i);
+                            }
+
+                            Swap(array, low, pivot);
+
+                            if (pivot - low > 1)
+                                PartitionAscending(low, pivot, ++depth);
+
+                            if (depth-- > 2)
+                                return;
+
+                            PartitionAscending(pivot + 1, high, depth);
+                        }
+                    }
+
+                    void PartitionDescending(int low, int high, int depth)
+                    {
+                        if (low < high)
+                        {
+                            int pivot = low;
+
+                            for (int i = low + 1; i < high; ++i)
+                            {
+                                if (array[i].CompareTo(array[low]) > 0)
+                                    Swap(array, ++pivot, i);
+                            }
+
+                            Swap(array, low, pivot);
+
+                            if (pivot - low > 1)
+                                PartitionDescending(low, pivot, ++depth);
+
+                            if (depth-- > 2)
+                                return;
+
+                            PartitionDescending(pivot + 1, high, depth);
+                        }
+                    }
+                }
+
+                #endregion
             }
         }
     }
