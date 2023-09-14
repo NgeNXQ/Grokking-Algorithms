@@ -18,15 +18,9 @@ namespace GrokkingAlgorithms
 
                 public int Count { get => this.count; }
 
-                public Stack()
-                {
-                    this.stack = new T[Stack<T>.INITIAL_CAPACITY];
-                }
+                public Stack() => this.stack = new T[INITIAL_CAPACITY];
 
-                public Stack(int capacity)
-                { 
-                    this.stack = new T[capacity];
-                }
+                public Stack(int capacity) => this.stack = new T[capacity];
 
                 public void Push(T item)
                 {
@@ -87,8 +81,8 @@ namespace GrokkingAlgorithms
                     int index = 0;
                     T[] array = new T[this.count];
 
-                    foreach (T item in this)
-                        array[index++] = item;
+                    for (int i = this.count - 1; i >= 0; --i)
+                        array[index++] = this.stack[i];
 
                     return array;
                 }
@@ -101,7 +95,7 @@ namespace GrokkingAlgorithms
 
                 public IEnumerator<T> GetEnumerator()
                 {
-                    for (int i = this.count; i >= 0; --i)
+                    for (int i = this.count - 1; i >= 0; --i)
                         yield return this.stack[i];
                 }
 
