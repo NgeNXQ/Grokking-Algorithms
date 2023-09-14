@@ -327,11 +327,7 @@ namespace GrokkingAlgorithms_CSharp.UnitTests
 
             int[] actual = stack.ToArray();
 
-            for (int i = 0; i < expected.Length; ++i)
-            {
-                if (expected[i] != actual[i])
-                    Assert.Fail();
-            }
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
@@ -341,11 +337,7 @@ namespace GrokkingAlgorithms_CSharp.UnitTests
 
             int[] actual = stack.ToArray();
 
-            for (int i = 0; i < expected.Length; ++i)
-            {
-                if (expected[i] != actual[i])
-                    Assert.Fail();
-            }
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         #endregion
