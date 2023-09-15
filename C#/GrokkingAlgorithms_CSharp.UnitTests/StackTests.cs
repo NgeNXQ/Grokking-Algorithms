@@ -301,7 +301,7 @@ namespace GrokkingAlgorithms
                     }
 
                     [Test]
-                    public void TryPeek_EmptyStack_ReturnsItem()
+                    public void TryPeek_FilledStack_ReturnsItem()
                     {
                         stack.Push(1);
                         stack.Push(2);
