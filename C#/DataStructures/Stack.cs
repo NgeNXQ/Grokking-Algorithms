@@ -35,7 +35,7 @@ namespace GrokkingAlgorithms
                     if (this.count < 1)
                         throw new InvalidOperationException($"{nameof(Stack<T>)} is empty.");
 
-                    return this.stack[this.count--];
+                    return this.stack[--this.count];
                 }
 
                 public bool TryPop(out T result)
@@ -47,7 +47,7 @@ namespace GrokkingAlgorithms
                     }
                     else
                     {
-                        result = this.stack[this.count--];
+                        result = this.stack[--this.count];
                         return true;
                     }
                 }

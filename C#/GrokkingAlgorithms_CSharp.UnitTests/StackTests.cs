@@ -5,10 +5,10 @@ namespace GrokkingAlgorithms_CSharp.UnitTests
     [TestFixture]
     internal sealed class StackTests
     {
-        private Stack<int> stack;
+        private GrokkingAlgorithms.CSharp.DataStructures.Stack<int> stack;
 
         [SetUp]
-        public void SetUp() => this.stack = new Stack<int>();
+        public void SetUp() => this.stack = new GrokkingAlgorithms.CSharp.DataStructures.Stack<int>();
 
         #region Push
 
