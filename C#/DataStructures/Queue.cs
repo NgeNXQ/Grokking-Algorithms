@@ -35,8 +35,24 @@ namespace GrokkingAlgorithms
                         this.tailIndex = 0;
                     }
 
-                    if ((float)this.Count / this.queue.Length > CAPACITY_THRESHOLD)
-                        Array.Resize(ref this.queue, this.queue.Length * 2);
+                    if ((float)this.tailIndex / this.queue.Length > CAPACITY_THRESHOLD)
+                    {
+                        if (this.headIndex != 0)
+                        {
+                            for (int i = this.headIndex, j = 0; i < this.tailIndex; ++i, ++j)
+                            {
+                                this.queue[j] = this.queue[i];
+                            }
+
+                            this.tailIndex -= this.headIndex;
+                            this.headIndex = 0;   
+                        }
+                        else
+                        {
+                            Array.Resize(ref this.queue, this.queue.Length * 2);
+                        }
+
+                    }
 
                     this.queue[this.tailIndex++] = item;
                 }
