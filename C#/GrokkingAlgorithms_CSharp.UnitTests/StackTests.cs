@@ -216,7 +216,7 @@ namespace GrokkingAlgorithms
                     }
 
                     [Test]
-                    public void TryPop_EmptyStack_ReturnsItem()
+                    public void TryPop_FilledStack_ReturnsItem()
                     {
                         stack.Push(1);
                         stack.Push(2);
