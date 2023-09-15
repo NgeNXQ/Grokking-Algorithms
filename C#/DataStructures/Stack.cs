@@ -11,7 +11,7 @@ namespace GrokkingAlgorithms
             internal sealed class Stack<T> : IEnumerable<T>
             {
                 private const int INITIAL_CAPACITY = 10;
-                private const float CAPACITY_FACTOR = 0.7f;
+                private const float CAPACITY_THRESHOLD = 0.7f;
 
                 private T[] stack;
                 private int count;
@@ -24,7 +24,7 @@ namespace GrokkingAlgorithms
 
                 public void Push(T item)
                 {
-                    if ((float)this.count / this.stack.Length > Stack<T>.CAPACITY_FACTOR)
+                    if ((float)this.count / this.stack.Length > CAPACITY_THRESHOLD)
                         Array.Resize(ref this.stack, this.stack.Length * 2);
 
                     this.stack[this.count++] = item;   
@@ -74,7 +74,11 @@ namespace GrokkingAlgorithms
                     }
                 }
 
-                public void TrimExcess() => Array.Resize(ref this.stack, this.stack.Length);
+                public void TrimExcess()
+                {
+                    if (this.count / this.stack.Length > CAPACITY_THRESHOLD)
+                        Array.Resize(ref this.stack, this.stack.Length);
+                } 
 
                 public T[] ToArray()
                 {
