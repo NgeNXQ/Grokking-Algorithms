@@ -76,7 +76,7 @@ namespace GrokkingAlgorithms
 
                 public void TrimExcess()
                 {
-                    if (this.count / this.stack.Length > CAPACITY_THRESHOLD)
+                    if ((float)this.count / this.stack.Length > CAPACITY_THRESHOLD)
                         Array.Resize(ref this.stack, this.stack.Length);
                 } 
 
