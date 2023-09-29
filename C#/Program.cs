@@ -2,7 +2,7 @@
 {
     internal sealed class Program
     {
-        private static void Main() 
+        private static void Main()
         {
 
         }
