@@ -27,6 +27,9 @@
 
                 public static void SelectionSort<T>(T[] array, Order order) where T : IComparable<T>
                 {
+                    if (array == null)
+                        throw new ArgumentNullException($"{nameof(array)} is null.");
+
                     int index;
 
                     switch (order)
@@ -70,10 +73,105 @@
 
                 #endregion
 
+                #region Insertion Sort
+
+                public static void InsertionSort<T>(T[] array, Order order) where T : IComparable<T>
+                {
+                    if (array == null)
+                        throw new ArgumentNullException($"{nameof(array)} is null.");
+
+                    switch (order)
+                    {
+                        case Order.Ascending:
+                            {
+                                for (int i = 1; i < array.Length; ++i)
+                                {
+                                    if (array[i].CompareTo(array[i - 1]) < 0)
+                                    {
+                                        Swap(array, i, i - 1);
+
+                                        for (int j = i - 1; j >= 0; --j)
+                                        {
+                                            for (int k = 0; k < j; ++k)
+                                            {
+                                                if (array[j].CompareTo(array[k]) < 0)
+                                                    Swap(array, j, k);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        case Order.Descending:
+                            {
+                                for (int i = 1; i < array.Length; ++i)
+                                {
+                                    if (array[i].CompareTo(array[i - 1]) > 0)
+                                    {
+                                        Swap(array, i, i - 1);
+
+                                        for (int j = i - 1; j >= 0; --j)
+                                        {
+                                            for (int k = 0; k < j; ++k)
+                                            {
+                                                if (array[j].CompareTo(array[k]) > 0)
+                                                    Swap(array, j, k);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                    }
+                }
+
+                #endregion
+
+                #region Bubble Sort
+
+                public static void BubbleSort<T>(T[] array, Order order) where T : IComparable<T>
+                {
+                    if (array == null)
+                        throw new ArgumentNullException($"{nameof(array)} is null.");
+
+                    switch (order)
+                    {
+                        case Order.Ascending:
+                            {
+                                for (int i = 0; i < array.Length; ++i)
+                                {
+                                    for (int j = i + 1; j < array.Length; ++j)
+                                    {
+                                        if (array[i].CompareTo(array[j]) > 0)
+                                            Swap(array, i, j);
+                                    }
+                                }
+                            }
+                            break;
+                        case Order.Descending:
+                            {
+                                for (int i = 0; i < array.Length; ++i)
+                                {
+                                    for (int j = i + 1; j < array.Length; ++j)
+                                    {
+                                        if (array[i].CompareTo(array[j]) < 0)
+                                            Swap(array, i, j);
+                                    }
+                                }
+                            }
+                            break;
+                    }
+                }
+
+                #endregion
+
                 #region Quick Sort
 
                 public static void QuickSortPivotLeftWithoutMedian<T>(T[] array, Order order) where T : IComparable<T>
                 {
+                    if (array == null)
+                        throw new ArgumentNullException($"{nameof(array)} is null.");
+
                     switch(order)
                     {
                         case Order.Ascending:
